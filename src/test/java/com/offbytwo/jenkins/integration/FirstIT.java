@@ -1,25 +1,26 @@
 package com.offbytwo.jenkins.integration;
 
-import org.testng.annotations.BeforeMethod;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.io.IOException;
+
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.offbytwo.jenkins.JenkinsServer;
+import com.offbytwo.jenkins.model.ComputerSet;
 
 public class FirstIT
 {
     private JenkinsServer js;
 
-    @BeforeMethod
-    public void beforeMethod()
+    @BeforeTest
+    public void beforeTest()
     {
         js = new JenkinsServer( Constant.JENKINS_URI );
-    }
-
-    @Test
-    public void firstTest()
-    {
-        System.out.println( "Start checking..." );
-        while (!js.isRunning()) {
+        System.out.print( "Start checking..." );
+        while ( !js.isRunning() )
+        {
             try
             {
                 System.out.print( "." );
@@ -27,10 +28,17 @@ public class FirstIT
             }
             catch ( InterruptedException e )
             {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
-        System.out.println( "Running..." );
+        System.out.println( "Running" );
+    }
+
+    @Test( )
+    public void firstTest()
+        throws IOException
+    {
+        ComputerSet computerSet = js.getComputerSet();
+        assertThat( computerSet.getBusyExecutors() ).isEqualTo( 0 );
     }
 }
