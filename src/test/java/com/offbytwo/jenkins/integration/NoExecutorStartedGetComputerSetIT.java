@@ -44,4 +44,9 @@ public class NoExecutorStartedGetComputerSetIT
         assertThat( computerSet.getBusyExecutors() ).isEqualTo( 0 );
     }
 
+    @Test
+    public void getDisplayNameShouldReturnNodes()
+    {
+        assertThat( computerSet.getDisplayName() ).isEqualTo( "Nodes" );
+    }
 }

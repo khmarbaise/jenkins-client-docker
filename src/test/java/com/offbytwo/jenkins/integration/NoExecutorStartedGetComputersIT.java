@@ -9,7 +9,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import com.offbytwo.jenkins.model.Computer;
-import com.offbytwo.jenkins.model.Job;
 
 public class NoExecutorStartedGetComputersIT
     extends AbstractJenkinsIntegrationCase
