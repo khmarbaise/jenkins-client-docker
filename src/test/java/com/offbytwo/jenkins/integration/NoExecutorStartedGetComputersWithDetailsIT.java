@@ -45,4 +45,22 @@ public class NoExecutorStartedGetComputersWithDetailsIT
     {
         assertThat( computerWithDetails.getLaunchSupported() ).isTrue();
     }
+
+    @Test
+    public void getManualLanuchShouldReturnTrue()
+    {
+        assertThat( computerWithDetails.getManualLaunchAllowed() ).isTrue();
+    }
+
+    @Test
+    public void getNumExecutorsShouldReturnTwo()
+    {
+        assertThat( computerWithDetails.getNumExecutors() ).isEqualTo( 2 );
+    }
+
+    @Test
+    public void getOffLineShouldReturnTrue()
+    {
+        assertThat( computerWithDetails.getOffline() ).isTrue();
+    }
 }
