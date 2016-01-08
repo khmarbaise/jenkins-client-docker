@@ -15,7 +15,7 @@ public class AbstractJenkinsIntegrationCase
     public void waitUntilJenkinsHasBeenStartedUp()
     {
         jenkinsServer = new JenkinsServer( Constant.JENKINS_URI );
-        System.out.print( "Start checking if JENKINS is running..." );
+        System.out.print( "Wait until Jenkins is started..." );
         while ( !jenkinsServer.isRunning() )
         {
             try
