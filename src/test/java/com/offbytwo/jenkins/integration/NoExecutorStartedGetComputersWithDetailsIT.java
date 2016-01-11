@@ -63,4 +63,16 @@ public class NoExecutorStartedGetComputersWithDetailsIT
     {
         assertThat( computerWithDetails.getOffline() ).isTrue();
     }
+
+    @Test
+    public void getOfflineCauseShouldReturnNonNull() throws IOException
+    {
+        assertThat( computerWithDetails.getOfflineCause() ).isNotNull();
+    }
+
+    @Test
+    public void getOfflineReasonShouldReturnNonNull()
+    {
+        assertThat( computerWithDetails.getOfflineCauseReason() ).isEqualTo( "I have set offline manually." );
+    }
 }
