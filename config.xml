@@ -2,14 +2,13 @@
 <hudson>
   <temporaryOfflineCause class="hudson.slaves.OfflineCause$UserCause">
     <timestamp>1451567220551</timestamp>
-    <description>
       <holder>
         <owner>hudson.slaves.Messages</owner>
       </holder>
       <key>SlaveComputer.DisconnectedBy</key>
       <args>
         <string>anonymous</string>
-        <string></string>
+        <string> : Manually turned off.</string>
       </args>
     </description>
   </temporaryOfflineCause>

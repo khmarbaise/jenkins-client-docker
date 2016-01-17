@@ -24,22 +24,23 @@ public class NoExecutorStartedGetOfflineCauseIT
     {
         ComputerSet computerSet = jenkinsServer.getComputerSet();
         List<ComputerWithDetails> computerList = computerSet.getComputer();
-        ComputerWithDetails computer = computerList.get( 0 );
-        ComputerWithDetails details = computer.details();
-        OfflineCause offlineCause2 = computer.getOfflineCause();
+//        ComputerWithDetails computer = computerList.get( 0 );
+//        ComputerWithDetails details = computer.details();
+//        OfflineCause offlineCause2 = computer.getOfflineCause();
         offlineCause = jenkinsServer.getComputerSet().getComputer().get( 0 ).getOfflineCause();
     }
 
     /**
-     * This is a timestamp so really can't make a test which compares to a real value. TODO: Think about this...
+     * This is a timestamp so I really can't make a test which compares to a real value. 
+     * TODO: Think about this...
      */
-    @Test
+    @Test(enabled = false, description = "Currently disabled until i have reconfigured the Docker configuration appropriately.")
     public void getTimestampShouldReturnNonZero()
     {
         assertThat( offlineCause.getTimestamp() ).isNotZero();
     }
 
-    @Test
+    @Test(enabled = false, description = "Currently disabled until i have reconfigured the Docker configuration appropriately.")
     public void getDescriptionShouldReturnTheAppropriateMessage()
     {
         assertThat( offlineCause.getDescription() ).isEqualTo( "Disconnected by anonymous : I have set offline manually." );
